@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD Basico", "CRUD Basico\CRUD Basico.csproj", "{96F6179E-8B8D-47CB-AD17-62585C523C69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96F6179E-8B8D-47CB-AD17-62585C523C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F6179E-8B8D-47CB-AD17-62585C523C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F6179E-8B8D-47CB-AD17-62585C523C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F6179E-8B8D-47CB-AD17-62585C523C69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BFDF0214-30B5-4CF0-B35A-0B3042654FC6}
+	EndGlobalSection
+EndGlobal
