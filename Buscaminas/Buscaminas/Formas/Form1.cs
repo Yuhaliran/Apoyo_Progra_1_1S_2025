@@ -1,4 +1,5 @@
 ﻿using Buscaminas.Clases;
+using Buscaminas.Formas;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -116,7 +117,7 @@ namespace Buscaminas
                             if (!string.IsNullOrWhiteSpace(nombreJugador))
                             {
                                 
-                                Servicios.GuardarResultado(nombreJugador, movimientos, false);
+                                ServiciosResultados.GuardarResultado(nombreJugador, movimientos, false);
                                 MessageBox.Show("Resultado guardado.");
                             }
                         }
@@ -200,124 +201,9 @@ namespace Buscaminas
 
         private void Reiniciar_Click(object sender, EventArgs e)
         {
+            ReinicarSeleccionCola reiniciar = new ReinicarSeleccionCola();
 
-            
-                // Obtener las dificultades
-                var dificultades = WindowsFormsApp1.Servicios.ServicioDificultad.ObtenerDificultades();
-
-                // Crear dinámicamente el formulario de diálogo
-                Form cuadroDialogo = new Form()
-                {
-                    Width = 300,
-                    Height = 150,
-                    Text = "Seleccionar Dificultad",
-                    FormBorderStyle = FormBorderStyle.FixedDialog,
-                    StartPosition = FormStartPosition.CenterParent,
-                    MinimizeBox = false,
-                    MaximizeBox = false
-                };
-
-                ComboBox combo = new ComboBox()
-                {
-                    DataSource = dificultades,
-                    DisplayMember = "Nombre",
-                    ValueMember = "IdNivel",
-                    DropDownStyle = ComboBoxStyle.DropDownList,
-                    Left = 20,
-                    Top = 20,
-                    Width = 240
-                };
-
-                Button btnAceptar = new Button()
-                {
-                    Text = "Aceptar",
-                    DialogResult = DialogResult.OK,
-                    Left = 90,
-                    Top = 60,
-                    Width = 100
-                };
-
-                cuadroDialogo.Controls.Add(combo);
-                cuadroDialogo.Controls.Add(btnAceptar);
-                cuadroDialogo.AcceptButton = btnAceptar;
-
-                // Mostrar el cuadro de diálogo
-                if (cuadroDialogo.ShowDialog() == DialogResult.OK)
-                {
-                    if (combo.SelectedItem is Dificultad dificultad)
-                    {
-                        filas = dificultad.Filas;
-                        columnas = dificultad.Columnas;
-                        minas = dificultad.Minas;
-
-                        if (minas > (filas * columnas))
-                        {
-                            MessageBox.Show("La cantidad de minas es más grande que el tamaño del tablero.");
-                            return;
-                        }
-
-                        LimpiarTablero();
-                        InicializarJuego();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Selecciona una dificultad válida.");
-                    }
-                }
-            
-
-
-
-
-            //int  espaciamiento = 20;
-
-            //using (Form cuadroConfigurarTablero = new Form())
-            //{
-            //    cuadroConfigurarTablero.Text = "Configurar tablero";
-            //    cuadroConfigurarTablero.FormBorderStyle = FormBorderStyle.FixedDialog;
-            //    cuadroConfigurarTablero.MinimizeBox = false;
-            //    cuadroConfigurarTablero.MaximizeBox = false;
-            //    cuadroConfigurarTablero.StartPosition = FormStartPosition.CenterParent;
-            //    cuadroConfigurarTablero.Size = new Size(300, 190);
-
-            //    Label labelNumFilas = new Label() { Left = 20, Top = espaciamiento, Text = "Cantidad de Filas:", AutoSize = true };
-            //    NumericUpDown numNumFilas = new NumericUpDown() { Left = 150, Top = espaciamiento, Width = 100, Minimum = 1, Value = filas };
-
-            //    Label labelNumColumnas = new Label() { Left = 20, Top = (espaciamiento * 2), Text = "Cantidad de Columnas:", AutoSize = true };
-            //    NumericUpDown numNumColumnas = new NumericUpDown() { Left = 150, Top = (espaciamiento * 2), Width = 100, Minimum = 1, Value = columnas };
-
-            //    Label labelNumMinas = new Label() { Left = 20, Top = (espaciamiento * 3), Text = "Cantidad de minas:", AutoSize = true };
-            //    NumericUpDown numNumMinas = new NumericUpDown() { Left = 150, Top = (espaciamiento * 3), Width = 100, Minimum = 1, Value = minas };
-
-
-            //    Button botonAceptar = new Button() { Text = "Aceptar", Left = 100, Width = 80, Top = (espaciamiento * 5), DialogResult = DialogResult.OK };
-
-            //    cuadroConfigurarTablero.Controls.Add(labelNumMinas);
-            //    cuadroConfigurarTablero.Controls.Add(numNumMinas);
-            //    cuadroConfigurarTablero.Controls.Add(labelNumFilas);
-            //    cuadroConfigurarTablero.Controls.Add(numNumFilas);
-            //    cuadroConfigurarTablero.Controls.Add(labelNumColumnas);
-            //    cuadroConfigurarTablero.Controls.Add(numNumColumnas);
-            //    cuadroConfigurarTablero.Controls.Add(botonAceptar);
-
-            //    cuadroConfigurarTablero.AcceptButton = botonAceptar;
-
-            //    if (cuadroConfigurarTablero.ShowDialog() == DialogResult.OK)
-            //    {
-            //        filas = (int)numNumFilas.Value;
-            //        columnas = (int)numNumColumnas.Value;
-            //        minas = (int)numNumMinas.Value;
-            //        LimpiarTablero();
-
-            //        if (minas > (filas*columnas))
-            //        {
-            //            MessageBox.Show("La cantidad de minas es mas grande que el tamanio del tablero");
-            //            return;
-            //        }
-
-            //        InicializarJuego();
-            //    }
-            //}
+            reiniciar.ShowDialog();
         }
 
         private void LimpiarTablero()

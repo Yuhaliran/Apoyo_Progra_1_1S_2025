@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Buscaminas
 {
-    public static class ConexionBD
+    public static class Conexion
     {
-        private static readonly string connectionString = "server=127.0.0.1;database=prueba;uid=root;pwd=orejon112;";
+        private static readonly string connectionString = "server=127.0.0.1;database=prueba;uid=usu;pwd=contra;";
 
         public static MySqlConnection ObtenerConexion()
         {

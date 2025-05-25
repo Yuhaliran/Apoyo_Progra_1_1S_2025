@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.Servicios
 
             try
             {
-                using (MySqlConnection conexion = ConexionBD.ObtenerConexion())
+                using (MySqlConnection conexion = Conexion.ObtenerConexion())
                 {
                     string query = "SELECT idNivel, nombre, filas, columnas, minas FROM Dificultad";
 

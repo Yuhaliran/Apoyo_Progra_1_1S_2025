@@ -8,7 +8,6 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnGuardarCambios;
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -32,7 +31,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +46,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(560, 300);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.actualizarInformacion);
             // 
             // btnEliminar
             // 
@@ -60,23 +58,12 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.Location = new System.Drawing.Point(230, 320);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(200, 30);
-            this.btnGuardarCambios.TabIndex = 2;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.BtnGuardarCambios_Click);
-            // 
             // ResultadosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnGuardarCambios);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ResultadosForm";
             this.Text = "Resultados del Buscaminas";
